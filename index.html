@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulario de Datos</title>
+  <style>
+    
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <div class="form-group">
+      <label for="nombre">Nombre :</label>
+      <input type="text" id="nombre" value="Laidy">
+    </div>
+
+    <div class="form-group">
+      <label for="edad">Edad :</label>
+      <input type="number" id="edad" value="19">
+    </div>
+
+    <div class="form-group">
+      <label for="peso">Peso :</label>
+      <input type="text" id="peso" value="42kl">
+    </div>
+
+    <div class="buttons">
+      <button type="button" class="btn" id="btnAgregar">Agregar</button>
+      <button type="button" class="btn" id="btnBorrar">Borrar</button>
+    </div>
+
+    <div class="resultado" id="resultado">
+      Hola Laidy tu tienes 19 años y actualmente pesas 42kl
+    </div>
+  </div>
+
+  <script>
+    const nombreInput = document.getElementById('nombre');
+    const edadInput = document.getElementById('edad');
+    const pesoInput = document.getElementById('peso');
+    const btnAgregar = document.getElementById('btnAgregar');
+    const btnBorrar = document.getElementById('btnBorrar');
+    const resultado = document.getElementById('resultado');
+
+    btnAgregar.addEventListener('click', () => {
+      const nombre = nombreInput.value.trim();
+      const edad = edadInput.value.trim();
+      const peso = pesoInput.value.trim();
+
+      if (nombre && edad && peso) {
+        resultado.textContent = `Hola ${nombre} tu tienes ${edad} años y actualmente pesas ${peso}`;
+      } else {
+        resultado.textContent = 'Por favor completa todos los campos.';
+      }
+    });
+
+    btnBorrar.addEventListener('click', () => {
+      nombreInput.value = '';
+      edadInput.value = '';
+      pesoInput.value = '';
+      resultado.textContent = '';
+    });
+  </script>
+
+</body>
+</html>
